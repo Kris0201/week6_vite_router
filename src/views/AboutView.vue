@@ -3,6 +3,8 @@
     <h1>This is an about page</h1>
     {{ data }}
   </div>
+
+  <button type="button" class="btn btn-primary">Primary</button>
 </template>
 
 <script>

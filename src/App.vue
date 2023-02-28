@@ -1,21 +1,34 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
+const {VITE_URL, VITE_PATH} =import.meta.env
 
-export default{
-  components:{
-    RouterLink, 
-    RouterView,
-    
+export default {
+  data() {
+    return {
+      isLoading: false
+    }
+  },
+  components: {
+    RouterLink,
+    RouterView
+  },
+  mounted() {
+    console.log('env', import.meta.env.VITE_URL, import.meta.env.VITE_PATH)
+    this.isLoading = true // 頁面一載入就 loading
+    setTimeout(() => {    // loading 一秒後關閉
+      this.isLoading = false
+    }, 1000)
   }
 }
 </script>
 
 <template>
   <header>
+    <VueLoading v-model:active="isLoading"></VueLoading>
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
