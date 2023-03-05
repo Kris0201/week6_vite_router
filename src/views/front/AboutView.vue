@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    {{ data }}
+    
   </div>
 
   <button type="button" class="btn btn-primary">Primary</button>
@@ -16,7 +16,6 @@ export default {
   },
 
   mounted() {
-    console.log(import.meta.env.VITE_TEXT)
     this.$http.get('https://randomuser.me/api/').then((res) => {
       console.log(res);
       this.data=res.data.results[0]
